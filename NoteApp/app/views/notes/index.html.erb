@@ -1,0 +1,17 @@
+<p><%= link_to 'dodaj notatkę', new_note_path %></p>
+<table class="table">
+  <tr>
+    <th>Temat</th>
+    <th>Akcja</th>
+  </tr>
+  <% @notes.each do |note| %>
+  <tr>
+    <td><%= link_to "#{note.subject}", note_path(id: note.id) %> </td>
+    <td>
+    <%= link_to "Edytuj", edit_note_path(id: note.id) %>
+    ||
+    <%= link_to "Usuń", note_path(id: note.id), method: :delete, data: { confirm: "Na pewno usunąć?" } %>
+    </td>
+  </tr>
+  <% end %>
+</table>
