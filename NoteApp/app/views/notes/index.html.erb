@@ -1,4 +1,7 @@
 <p><%= link_to 'dodaj notatkę', new_note_path %></p>
+
+<%= paginate @notes %>
+
 <table class="table">
   <tr>
     <th>Temat</th>

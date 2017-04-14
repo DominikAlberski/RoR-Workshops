@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   before_action :current_user_notes_find, only: %I(show edit update destroy)
 
   def index
-    @notes = current_user.notes.all
+    @notes = current_user.notes.page(params[:page])
   end
 
   def new

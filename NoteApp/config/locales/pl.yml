@@ -1,0 +1,8 @@
+pl:
+  activerecord:
+    models:
+      member: Użytkownik/czka
+    attributes:
+      member:
+        email: "Adres email"
+        password: "Hasło"
