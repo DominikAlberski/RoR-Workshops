@@ -1,0 +1,23 @@
+<p><%= link_to 'Dodaj nowy kontakt', new_contact_path %></p>
+<table>
+  <tr>
+    <th>Imię</th>
+    <th>Nazwisko</th>
+    <th>Nick</th>
+    <th>Email</th>
+    <th>Media społecznościowe</th>
+    <th>Notatki</th>
+    <th>Akcje</th>
+  </tr>
+  <% @contacts.each do |contact| %>
+  <tr>
+    <td><%= link_to contact.name, contact_path(contact) %></td>
+    <td><%= contact.surname %></td>
+    <td><%= contact.nick %></td>
+    <td><%= contact.email %></td>
+    <td><%= link_to 'profil', contact.social, target: "_blank", rel: "nofollow" %> </td>
+    <td><%= contact.notes %></td>
+    <td><%= link_to 'Edytuj', edit_contact_path(contact) %> || <%= link_to 'Usuń', contact_path(contact), method: :delete, data: { confirm: "Na pewno usunąć ?" }%></td>
+  </tr>
+  <% end %>
+</table>
