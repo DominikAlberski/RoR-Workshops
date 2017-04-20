@@ -1,5 +1,5 @@
-<p><%= link_to 'Dodaj nowy kontakt', new_contact_path %></p>
-<table>
+<p><%= link_to 'Dodaj nowy kontakt', new_contact_path, class: 'btn btn-primary' %></p>
+<table class="table">
   <tr>
     <th>Imię</th>
     <th>Nazwisko</th>
@@ -17,7 +17,7 @@
     <td><%= contact.email %></td>
     <td><%= link_to 'profil', contact.social, target: "_blank", rel: "nofollow" %> </td>
     <td><%= contact.notes %></td>
-    <td><%= link_to 'Edytuj', edit_contact_path(contact) %> || <%= link_to 'Usuń', contact_path(contact), method: :delete, data: { confirm: "Na pewno usunąć ?" }%></td>
+    <td><%= link_to 'Edytuj', edit_contact_path(contact), class: 'btn btn-warning' %><%= link_to 'Usuń', contact_path(contact), method: :delete, data: { confirm: "Na pewno usunąć ?" }, class: 'btn btn-danger' %></td>
   </tr>
   <% end %>
 </table>

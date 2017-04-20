@@ -4,6 +4,7 @@
     <title>ContactApp</title>
     <%= csrf_meta_tags %>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -15,15 +16,19 @@
     <% if alert %>
     <p class="alert"><%= alert %></p>
     <% end %>
-    <% if user_signed_in? %>
-      Zalogowano jako <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edytuj profil', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Wyloguj się", destroy_user_session_path, method: :delete, :class =>
-      'navbar-link' %>
-      <% else %>
-      <%= link_to "Załóż konto", new_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Zaloguj się", new_user_session_path, :class => 'navbar-link' %>
-    <% end %>
+    <div class="conteiner">
+      <% if user_signed_in? %>
+        Zalogowano jako <strong><%= current_user.email %></strong>.
+        <%= link_to 'Edytuj profil', edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Wyloguj się", destroy_user_session_path, method: :delete, :class =>
+        'navbar-link' %>
+        <% else %>
+        <%= link_to "Załóż konto", new_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Zaloguj się", new_user_session_path, :class => 'navbar-link' %>
+      <% end %>
+    </div>
+    <div class="conteiner">
     <%= yield %>
+    </div>
   </body>
 </html>
